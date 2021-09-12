@@ -1,33 +1,24 @@
-import sys
-class Customer:
-    """this is the bank our crypto lovers"""
-    bankname='MONEYBANK'
-    def __init__(self,name,balance=0.0):
+class Student:
+    def __init__(self,name,marks):
         self.name=name
-        self.balance=balance
-    def deposit(self,amt):
-        self.balance+=amt
-        print("balance after deposit",self.balance)
-    def withdraw(self,amt):
-        if amt>self.balance:
-            print("insufficient funds")
-            sys.exit()
-        self.balance-=amt
-        print("balance after withdrawl",self.balance)
-print("welcome to the ",Customer.bankname)
-name=input("enter the name: ")
-c=Customer(name)
-while True:
-    print('d-Deposit \nw-withdrawl \ne-exit')
-    option=input("choose the option")
-    if option=="d" or option=="D":
-        amt=float(input("enter the amount"))
-        c.deposit(amt)
-    elif option=='w' or option=='W':
-        amt=float(input("enter the amount: "))
-        c.withdraw(amt)
-    elif option=='e' or option=='E':
-        print("thanks for coming")
-        sys.exit()
-    else:
-        print("invalid option.. please choose the right option")
+        self.marks=marks
+    def display(self):
+        print('hlo',self.name)
+        print('your marks are', self.marks)
+    def grade(self):
+        if self.marks>=70:
+            print("you got ist grade")
+        elif self.marks>=60:
+            print("you got 2nd grade")
+        elif self.marks>=50:
+            print("you got 3rd position")
+        else:
+            print("you got last position")
+a=int(input("enter the number of student: "))
+for i in range(a):
+    name=input("enter the student's name: ")
+    marks=int(input("enter the student marks: "))
+    s=Student(name,marks)
+    s.display()
+    s.grade()
+    print()
